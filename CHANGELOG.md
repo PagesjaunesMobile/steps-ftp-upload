@@ -1,6 +1,22 @@
-## Changelog (Current version: 2.0.1)
+## Changelog (Current version: 2.0.4)
 
 -----------------
+
+### 2.0.4 (2017 Feb 20)
+
+* [acf4153] Prepare for 2.0.4
+* [0001adc] Merge pull request #12 from BennetLinden/master
+* [f38e8e1] Update step.sh
+
+### 2.0.3 (2017 Jan 26)
+
+* [aad57a3] removed secret fields from logs, close #10 (#11)
+
+### 2.0.2 (2017 Jan 18)
+
+* [9375fc8] prepare for 2.0.2
+* [a369516] prepare test wf (#9)
+* [897b2e7] Fix lfpt install on MacOS (#8)
 
 ### 2.0.1 (2016 Apr 15)
 
@@ -31,4 +47,4 @@
 
 -----------------
 
-Updated: 2016 Apr 15
+Updated: 2017 Feb 20
