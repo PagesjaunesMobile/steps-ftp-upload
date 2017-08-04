@@ -80,18 +80,23 @@ validate_required_input "upload_target_path" $upload_target_path
 
 os=$(uname -s)
 
-if [[ "$os" == "Darwin" ]] ; then
-  echo_info "Installing lftp on Darwin"
-  echo_details "$ brew install homebrew/boneyard/lftp"
+command -v lftp >/dev/null 2>&1
+is_lftp_installed=$?
 
-  brew install homebrew/boneyard/lftp
-elif [[ "$os" == "Linux" ]] ; then
-  echo_info "Installing lftp on Linux"
-  echo_details "$ sudo apt-get install lftp"
+if [[ $is_lftp_installed -ne 0 ]] ; then
+  if [[ "$os" == "Darwin" ]] ; then
+    echo_info "Installing lftp on Darwin"
+    echo_details "$ brew install homebrew/boneyard/lftp"
 
-  sudo apt-get install lftp
-else
-  echo_fail "unkown os: $os, supported: [Darwin, Linux]"
+    brew install homebrew/boneyard/lftp
+  elif [[ "$os" == "Linux" ]] ; then
+    echo_info "Installing lftp on Linux"
+    echo_details "$ sudo apt-get install lftp"
+
+    sudo apt-get install lftp
+  else
+    echo_fail "unkown os: $os, supported: [Darwin, Linux]"
+  fi
 fi
 
 echo_info "Uploading ${upload_source_path} -> ${upload_target_path}"
